@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import dotenv from 'dotenv'
 import { connectToDB } from './db/db.js'
 import authRouter from './controllers/authcontroller/authController.js'
 import EmployeeRouter from './controllers/employee/employeeController.js'
@@ -10,6 +11,7 @@ import LeaveRouter from './controllers/leave/hr_leave_controller.js'
 import AttendanceRouter from './controllers/attendance/attendanceRouter.js'
 import ImageRouter from './controllers/cloudinary/imageController.js'
 
+dotenv.config()
 const app = express()
 app.use(cors())
 app.use(express.json({ limit: "10mb" }));
