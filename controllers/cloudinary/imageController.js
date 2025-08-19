@@ -3,7 +3,7 @@ import { authMiddleware } from '../authcontroller/HandlerFunctions/authMiddlewar
 import { uploadImage, deleteImage } from './ImageHandler.js';
 import multer from 'multer';
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ storage: multer.memoryStorage() });
 const ImageRouter = express.Router();
 
 ImageRouter.post('/upload', authMiddleware, upload.single('image'), uploadImage);
