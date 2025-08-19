@@ -13,7 +13,13 @@ import ImageRouter from './controllers/cloudinary/imageController.js'
 
 dotenv.config()
 const app = express()
-app.use(cors())
+
+app.use(
+  cors({
+    origin: "*",
+    methods: "*",
+  })
+);
 app.use(async (req, res, next) => {
   await connectToDB();
   next();
